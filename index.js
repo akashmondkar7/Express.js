@@ -8,7 +8,7 @@ app.get("/", (req, resp) => {
   resp.send(home());
 });
 
-app.get("/Login", (req, resp) => {
+app.get("/login", (req, resp) => {
   resp.send(login());
 });
 
