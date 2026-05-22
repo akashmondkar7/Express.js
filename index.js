@@ -1,27 +1,9 @@
-import express from 'express';
-import path from 'path';
+import express from 'express'
+ const app = express()
+  app.get('/',(res,resp)=>{
+    resp.send("Home Page")
 
-const app = express();
 
-const publicPath = path.resolve('public');
+  })
 
-app.use(express.static(publicPath));
-
-app.get("/", (req, resp) => {
-  const abspath = path.resolve("view/home.html");
-  resp.sendFile(abspath);
-});
-
-app.get("/login", (req, resp) => {
-  const abspath = path.resolve("view/login.html");
-  resp.sendFile(abspath);
-});
-
-app.get("/about", (req, resp) => {
-  const abspath = path.resolve("view/about.html");
-  resp.sendFile(abspath);
-});
-
-app.listen(3860, () => {
-  console.log("Server running on port 3860");
-});
+  app.listen(3806)
