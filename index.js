@@ -1,5 +1,12 @@
 import express from 'express'
  const app = express()
+
+
+function checkRoute(req,resp,next){
+  console.log(req.url);
+  next();
+}
+ app.use(checkRoute);
   app.get('/',(res,resp)=>{
     resp.send("Home Page")
 
