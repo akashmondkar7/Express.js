@@ -1,36 +1,8 @@
 import express from 'express'
- const app = express()
+const app = express();
 
+ app.get("/",(req,resp)=>{
+  resp.send("home page")
 
-// function checkRoute(req,resp,next){
-//   console.log(req.url);
-//   next();
-// }
- app.use((req,resp,next)=>{
-  console.log(req.url);
-  next();
-});
-  app.get('/',(res,resp)=>{
-    resp.send("Home Page")
-
-
-  })
-
-  app.get('/user',(res,resp)=>{
-    resp.send("User")
-
-
-  })
-
-  app.get('/product',(res,resp)=>{
-    resp.send("Product")
-
-
-  })
-
-  app.get('/about',(res,resp)=>{
-    resp.send("about")
-
-
-  })
-  app.listen(3806)
+  
+ }).listen(4800)
