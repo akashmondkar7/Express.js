@@ -1,9 +1,14 @@
 import express from "express";
+import path from 'path'
 
 const app = express();
 
+app.use(express.urlencoded({extended:false}))
+app.use(express.static('public'))
+
 app.get("/", (req, res) => {
-  res.send("<h1>Home Page</h1>");
+   const filePath=path.resolve('view/home.html')
+  res.sendFile(filePath);
 });
 
 app.get("/login", (req, res) => {
@@ -23,7 +28,7 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-    console.log(req.body)
+    console.log("user login detail are:",req.body)
   res.send("<h1>Submit Page</h1>");
 });
 
@@ -32,5 +37,5 @@ app.get("/user", (req, res) => {
 });
 
 app.listen(3801, () => {
-  console.log("Server is running on port 3800");
+  console.log("Server is running on port 3801");
 });
