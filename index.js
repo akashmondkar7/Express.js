@@ -2,11 +2,36 @@ import express from 'express'
 
 const app = express();
 
+app.get("/", (req, res) => {
 
-app.set('view engine','ejs')
-app.get("/",(req,resp)=>{
- resp.render('home',{name:'Akash',yt:'this is akash',age:'25'})
-})
+    const users = ['anil', 'sam', 'peter', 'sidhu'];
+
+    let data = '<ul>';
+
+    for (let i = 0; i < users.length; i++) {
+
+        data += `
+          <li>
+             <a href="/user/${users[i]}">
+                ${users[i]}
+             </a>
+          </li>
+        `;
+    }
+
+    data += '</ul>';
+
+    res.send(data);
+});
 
 
-app.listen(3288)
+app.get("/user/:name", (req, res) => {
+
+    const userName = req.params.name;
+
+resp.send(`This is ${req.params.name} profile page`)
+});
+
+app.listen(3200, () => {
+    console.log("Server running on port 3200");
+});
