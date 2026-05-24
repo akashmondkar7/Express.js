@@ -2,11 +2,21 @@ import express from 'express'
 const app = express();
 
 
-function ageCheck(req,resp,next){
-  if(!req.query.age || req.query.age<18){
-      resp.send("you can not acces this page")
-  }
-}
+// function ageCheck(req,resp,next){
+//   if(!req.query.age || req.query.age<18){
+//       resp.send("you can not acces this page")
+      
+//   }else{
+//     next();
+//   }
+// }
+
+// app.use(ageCheck);
+
+
+
+app.use(ipCheck);
+
 
  app.get("/",(req,resp)=>{
   resp.send("home page")
