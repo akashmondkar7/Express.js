@@ -2,34 +2,34 @@ import express from 'express'
 const app = express();
 
 
-// function ageCheck(req,resp,next){
-//   if(!req.query.age || req.query.age<18){
-//       resp.send("you can not acces this page")
-      
-//   }else{
-//     next();
-//   }
-// }
+app.get('',(rep,resp)=>{
 
-// app.use(ageCheck);
+  resp.send("<h1>Home Page</h1>")
 
-
-
-app.use(ipCheck);
-
-
- app.get("/",(req,resp)=>{
-  resp.send("home page")
 })
 
- app.get("/admin",(req,resp)=>{
-  resp.send("about page")
+app.get('/login',(rep,resp)=>{
+
+  resp.send("<h1>login Page</h1>")
+
 })
 
- app.get("/user",(req,resp)=>{
-  resp.send("user page")
+app.get('/admin',(rep,resp)=>{
+
+  resp.send("<h1>Admin Page</h1>")
+
 })
 
- app.get("/login",(req,resp)=>{
-  resp.send("login page")
-}).listen(4800)
+app.get('/user',(rep,resp)=>{
+
+  resp.send("<h1>User Page</h1>")
+
+})
+
+app.get('/products',(rep,resp)=>{
+
+  resp.send("<h1>products Page</h1>")
+
+})
+
+app.listen(3200)
