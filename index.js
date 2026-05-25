@@ -8,16 +8,22 @@ const dbName="school"
 const client= new MongoClient(url);
 
 
-async function dbConnection(){
+// async function dbConnection(){
+  
+// }
+
+// dbConnection();
+
+
+app.get("/",async(req,resp)=>{
    await client.connect()
    const db=client.db(dbName);
    const collection= db.collection('student')
 
    const result=await collection.find().toArray()
    console.log(result)
-}
-
-dbConnection();
+   resp.send("Home page")
+})
 
 app.listen(3200)
 
