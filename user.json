@@ -1,0 +1,27 @@
+[
+    { 
+        "id":"1",
+        "name":"Akash",
+        "age":"25",
+        "email":"akash@test.com"
+    },
+     { 
+        "id":"2",
+        "name":"ash",
+        "age":"24",
+        "email":"akasaddj@test.com"
+    },
+    { 
+        "id":"3",
+        "name":"spdy",
+        "age":"22",
+        "email":"spydyj@test.com"
+    },
+     { 
+        "id":"4",
+        "name":"loki",
+        "age":"21",
+        "email":"sloki@test.com"
+    }
+
+]

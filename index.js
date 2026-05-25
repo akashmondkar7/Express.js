@@ -1,37 +1,27 @@
 import express from 'express'
-
-const app = express();
-
-app.get("/", (req, res) => {
-
-    const users = ['anil', 'sam', 'peter', 'sidhu'];
-
-    let data = '<ul>';
-
-    for (let i = 0; i < users.length; i++) {
-
-        data += `
-          <li>
-             <a href="/user/${users[i]}">
-                ${users[i]}
-             </a>
-          </li>
-        `;
-    }
-
-    data += '</ul>';
-
-    res.send(data);
-});
+import userData from './user.json' with{type:'json'}
+// import { name } from 'ejs';
+const app=express();
 
 
-app.get("/user/:name", (req, res) => {
+app.get("/",(req,resp)=>{
+ 
+  resp.send(userData)
+})
 
-    const userName = req.params.name;
+app.get("/user/:id",(req,resp)=>{
+  const id = req.params.id
+  console.log(id);
+  let filteredData = userData.filter((user)=>user.id==id)
+    resp.send(filteredData)
 
-resp.send(`This is ${req.params.name} profile page`)
-});
+})
 
-app.listen(3200, () => {
-    console.log("Server running on port 3200");
-});
+app.get("/username/:name",(req,resp)=>{
+  const name= req.params.name
+  console.log(name);
+  let filteredData = userData.filter((user)=>user.name.toLowerCase()==name.toLowerCase())
+    resp.send(filteredData)
+
+})
+app.listen(3210);
