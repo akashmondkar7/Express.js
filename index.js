@@ -14,15 +14,15 @@ const client= new MongoClient(url);
 
 // dbConnection();
 
-
+app.set("view engine",'ejs')
 app.get("/",async(req,resp)=>{
    await client.connect()
    const db=client.db(dbName);
    const collection= db.collection('student')
 
-   const result=await collection.find().toArray()
-   console.log(result)
-   resp.send("Home page")
+   const student=await collection.find().toArray()
+   console.log(student)
+   resp.render('student',{student})
 })
 
 app.listen(3200)
