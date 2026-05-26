@@ -8,7 +8,7 @@ const dbName="school"
 
 const client= new MongoClient(url);
 
-
+app.use(express.urlencoded({extended:false}))
 client.connect().then((connection)=>{
    const db=connection.db(dbName)
 
