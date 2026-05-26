@@ -36,6 +36,14 @@ client.connect().then((connection)=>{
 
 
         </form>`)
+
+        app.post("/add-student",async(req,resp)=>{
+        //  const collection =db.collection("student")
+        // const student = await collection.find().toArray()
+        resp.send("data saved")
+
+   })
+
    })
 
 
