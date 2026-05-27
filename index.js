@@ -25,7 +25,7 @@ client.connect().then((connection)=>{
    })
 
    app.get('/add',(req,resp)=>{
-      resp.send(`<form>
+      resp.send(`<form method="post">
         <input type="text" name="name" placeholder="enter student name"/>
         <br/><br/>
         <input type="text" name="email" placeholder="enter student email"/>
@@ -38,6 +38,7 @@ client.connect().then((connection)=>{
         </form>`)
 
         app.post("/add-student",async(req,resp)=>{
+          console.log(req.body)
         //  const collection =db.collection("student")
         // const student = await collection.find().toArray()
         resp.send("data saved")
