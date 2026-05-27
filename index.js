@@ -41,24 +41,7 @@ client.connect().then((connection) => {
     // Form Page
     app.get("/add", (req, resp) => {
 
-        resp.send(`
-        
-        <form method="post" action="/add-student">
-
-            <input type="text" name="name" placeholder="enter student name"/>
-            <br/><br/>
-
-            <input type="text" name="email" placeholder="enter student email"/>
-            <br/><br/>
-
-            <input type="text" name="age" placeholder="enter student age"/>
-            <br/><br/>
-
-            <button>Submit</button>
-
-        </form>
-
-        `);
+        resp.render("add-student");
 
     });
 
