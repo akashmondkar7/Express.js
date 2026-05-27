@@ -60,6 +60,10 @@ client.connect().then((connection) => {
 
     });
 
+    app.post("/add-student-api",(req,resp)=>{
+         resp.send({"massage":"success"})
+    })
+
 });
 
 app.listen(3200, () => {
